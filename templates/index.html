@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moayad Dughmosh AI Photos Text</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-box">Moayad Dughmosh AI Photos Text</div>
+    </header>
+    <main>
+        <form id="meme-form" enctype="multipart/form-data">
+            <input type="file" name="image" id="image-upload" multiple required>
+            <input type="text" name="top_text" id="top-text" placeholder="Top Text">
+            <input type="text" name="bottom_text" id="bottom-text" placeholder="Bottom Text">
+            <select name="font" id="font-select">
+                <option value="arial.ttf">Arial</option>
+                <option value="times.ttf">Times New Roman</option>
+                <option value="georgia.ttf">Georgia</option>
+                <option value="impact.ttf">Impact</option>
+                <option value="courier.ttf">Courier New</option>
+            </select>
+            <input type="color" name="font_color" id="font-color" value="#ffffff">
+            <input type="number" name="font_size" id="font-size" value="60" min="10" max="200">
+            <div>
+                <label for="top-position">Top Text Position:</label>
+                <select name="top_position" id="top-position">
+                    <option value="left">Left</option>
+                    <option value="center" selected>Center</option>
+                    <option value="right">Right</option>
+                </select>
+            </div>
+            <div>
+                <label for="bottom-position">Bottom Text Position:</label>
+                <select name="bottom_position" id="bottom-position">
+                    <option value="left">Left</option>
+                    <option value="center" selected>Center</option>
+                    <option value="right">Right</option>
+                </select>
+            </div>
+            <button type="submit">Generate Meme</button>
+        </form>
+        <div id="result"></div>
+        <!-- From Uiverse.io by NlghtM4re -->
+<div class="container">
+      <div class="item" style="--i:0;"></div>
+      <div class="item" style="--i:1;"></div>
+      <div class="item" style="--i:2;"></div>
+      <div class="item" style="--i:3;"></div>
+      <div class="item" style="--i:4;"></div>
+      <div class="item" style="--i:5;"></div>
+      <div class="item" style="--i:6;"></div>
+      <div class="item" style="--i:7;"></div>
+      <div class="item" style="--i:8;"></div>
+      <div class="item" style="--i:9;"></div>
+      <div class="item" style="--i:10;"></div>
+      <div class="item" style="--i:11;"></div>
+      <div class="item" style="--i:12;"></div>
+      <div class="item" style="--i:13;"></div>
+      <div class="item" style="--i:14;"></div>
+      <div class="item" style="--i:15;"></div>
+      <div class="item" style="--i:16;"></div>
+      <div class="item" style="--i:17;"></div>
+      <div class="item" style="--i:18;"></div>
+      <div class="item" style="--i:19;"></div>
+      <div class="item" style="--i:20;"></div>
+    </div>
+</div>
+
+    </main>
+    <footer>
+        <div class="footer-box">Developed by Moayad Dughmosh 2025</div>
+    </footer>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header, footer {
+    background-color: purple;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+.header-box, .footer-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+}
+
+#result {
+    position: relative;
+    margin-top: 2rem;
+}
+
+#result img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.draggable {
+    position: absolute;
+    cursor: move;
+    user-select: none;
+    color: white;
+    font-size: 2rem;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background: linear-gradient(135deg, #1a1a1a, #333333);
+    color: #e0e0e0;
+}
+
+body.dark-mode header, body.dark-mode footer {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode button {
+    background: linear-gradient(90deg, #3a3a3a 0%, #5a5a5a 100%);
+}
+
+body.dark-mode button:hover {
+    background: linear-gradient(90deg, #5a5a5a 0%, #3a3a3a 100%);
+}
+        .container {
+  position: absolute;
+  left: 5%; /* Shifts the container a little to the right */
+  top: 10%; /* Adjust based on header height */
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item {
+  position: absolute;
+  background-color: transparent;
+  width: calc(var(--i) * 2vmin); /* Decreased size */
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: .9vmin solid rgb(0, 200, 255);
+  transform-style: preserve-3d;
+  transform: rotateX(70deg) translateZ(50px);
+  animation: my-move 3s ease-in-out calc(var(--i) * 0.08s) infinite;
+  box-shadow: 0px 0px 15px rgb(124, 124, 124),
+    inset 0px 0px 15px rgb(124, 124, 124);
+}
+
+@keyframes my-move {
+  0%,
+  100% {
+    transform: rotateX(70deg) translateZ(50px) translateY(0px);
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    transform: rotateX(70deg) translateZ(50px) translateY(-50vmin);
+    filter: hue-rotate(180deg);
+  }
+}
+        /* From Uiverse.io by Shoh2008 */
+.loader {
+  position: relative;
+  height: 40px;
+  width: 6px;
+  color: #FFF;
+  animation: paddles 0.75s ease-out infinite;
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 15px;
+  width: 12px;
+  height: 12px;
+  background-color: greenyellow;
+  border-radius: 50%;
+  animation: ballbounce 0.6s ease-out infinite;
+}
+
+@keyframes paddles {
+  0% {
+    box-shadow: -25px -10px, 25px 10px
+  }
+
+  50% {
+    box-shadow: -25px 8px, 25px -10px
+  }
+
+  100% {
+    box-shadow: -25px -10px, 25px 10px
+  }
+}
+
+@keyframes ballbounce {
+  0% {
+    transform: translateX(-20px) scale(1, 1.2)
+  }
+
+  25% {
+    transform: scale(1.2, 1)
+  }
+
+  50% {
+    transform: translateX(15px) scale(1, 1.2)
+  }
+
+  75% {
+    transform: scale(1.2, 1)
+  }
+
+  100% {
+    transform: translateX(-20px)
+  }
+}
+
+
+    </style>
+    <script>
+       document.getElementById('meme-form').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const topText = document.getElementById('top-text').value.toUpperCase();
+    const bottomText = document.getElementById('bottom-text').value.toUpperCase();
+    const topPosition = document.getElementById('top-position').value;
+    const bottomPosition = document.getElementById('bottom-position').value;
+
+    const textPositions = {
+        top: topPosition,
+        bottom: bottomPosition
+    };
+
+    formData.append('top_text', topText);
+    formData.append('bottom_text', bottomText);
+    formData.append('text_positions', JSON.stringify(textPositions));
+
+    try {
+        const response = await fetch('/generate', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (response.ok) {
+            const images = await response.json();
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+
+            images.forEach((imageData, index) => {
+                const container = document.createElement('div');
+                container.style.position = 'relative';
+                resultDiv.appendChild(container);
+
+                const img = document.createElement('img');
+                img.src = `data:image/png;base64,${imageData}`;
+                img.style.maxWidth = '100%';
+                img.style.height = 'auto';
+                container.appendChild(img);
+
+                img.onload = function() {
+                    resizeImageToFitWindow(img);
+                };
+
+                if (topText) {
+                    const topTextElement = document.createElement('div');
+                    topTextElement.textContent = topText;
+                    topTextElement.classList.add('draggable');
+                    topTextElement.style.top = '10px';
+                    topTextElement.style.left = '50%';
+                    topTextElement.style.transform = 'translateX(-50%)';
+                    container.appendChild(topTextElement);
+                    makeDraggable(topTextElement, 'top');
+                }
+
+                if (bottomText) {
+                    const bottomTextElement = document.createElement('div');
+                    bottomTextElement.textContent = bottomText;
+                    bottomTextElement.classList.add('draggable');
+                    bottomTextElement.style.bottom = '10px';
+                    bottomTextElement.style.left = '50%';
+                    bottomTextElement.style.transform = 'translateX(-50%)';
+                    container.appendChild(bottomTextElement);
+                    makeDraggable(bottomTextElement, 'bottom');
+                }
+
+                const downloadButton = document.createElement('button');
+                downloadButton.textContent = 'Download Image';
+                downloadButton.addEventListener('click', async () => {
+                    const downloadResponse = await fetch('/download', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ image_data: imageData })
+                    });
+
+                    if (downloadResponse.ok) {
+                        const blob = await downloadResponse.blob();
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = 'edited_image.png';
+                        a.click();
+                    }
+                });
+
+                resultDiv.appendChild(downloadButton);
+            });
+        } else {
+            console.error('Error generating meme:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+});
+
+function resizeImageToFitWindow(img) {
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    const imgAspectRatio = img.naturalWidth / img.naturalHeight;
+
+    let newWidth, newHeight;
+
+    if (img.naturalWidth > windowWidth || img.naturalHeight > windowHeight) {
+        if (img.naturalWidth / windowWidth > img.naturalHeight / windowHeight) {
+            newWidth = windowWidth * 0.9; // 90% of window width
+            newHeight = newWidth / imgAspectRatio;
+        } else {
+            newHeight = windowHeight * 0.9; // 90% of window height
+            newWidth = newHeight * imgAspectRatio;
+        }
+
+        img.style.width = `${newWidth}px`;
+        img.style.height = `${newHeight}px`;
+    }
+}
+
+function makeDraggable(element, positionKey) {
+    let offsetX, offsetY;
+
+    element.addEventListener('mousedown', (e) => {
+        offsetX = e.clientX - element.getBoundingClientRect().left;
+        offsetY = e.clientY - element.getBoundingClientRect().top;
+        element.style.cursor = 'grabbing';
+
+        const moveHandler = (moveEvent) => {
+            const x = moveEvent.clientX - offsetX;
+            const y = moveEvent.clientY - offsetY;
+            element.style.left = `${x}px`;
+            element.style.top = `${y}px`;
+            element.style.transform = 'translate(0, 0)';
+
+            const textPositions = JSON.parse(document.querySelector('form').text_positions.value);
+            textPositions[positionKey] = [x, y];
+            document.querySelector('form').text_positions.value = JSON.stringify(textPositions);
+        };
+
+        const upHandler = () => {
+            window.removeEventListener('mousemove', moveHandler);
+            window.removeEventListener('mouseup', upHandler);
+            element.style.cursor = 'grab';
+        };
+
+        window.addEventListener('mousemove', moveHandler);
+        window.addEventListener('mouseup', upHandler);
+    });
+}
+
+// Toggle dark mode
+document.addEventListener('DOMContentLoaded', function() {
+    const darkModeToggle = document.createElement('button');
+    darkModeToggle.textContent = 'Toggle Dark Mode';
+    darkModeToggle.style.position = 'fixed';
+    darkModeToggle.style.top = '1rem';
+    darkModeToggle.style.right = '1rem';
+    darkModeToggle.style.padding = '0.5rem 1rem';
+    darkModeToggle.style.border = 'none';
+    darkModeToggle.style.borderRadius = '5px';
+    darkModeToggle.style.background = 'linear-gradient(90deg, #6a11cb 0%, #2575fc 100%)';
+    darkModeToggle.style.color = 'white';
+    darkModeToggle.style.cursor = 'pointer';
+    darkModeToggle.style.transition = 'background 0.3s';
+
+    darkModeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+    });
+
+    document.body.appendChild(darkModeToggle);
+});
+
+    </script>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
